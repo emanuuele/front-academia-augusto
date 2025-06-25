@@ -37,8 +37,8 @@ const ListaPagamentos = () => {
     ];
     async function listPayments() {
         const response = await api().get("/pagamentos");
-        if(response.data.length > 0) {
-            setListPagamentosData(response.data);
+        if(response.data.rows.length > 0) {
+            setListPagamentosData(response.data.rows);
         }
     }
       

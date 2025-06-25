@@ -158,14 +158,14 @@ const ListaClientes = () => {
 
   async function listClients() {
     const response = await api().get("/clients");
-    setListClientsData(response.data);
+    setListClientsData(response.data.rows);
     console.log({ response });
   }
 
   async function listVeacos() {
     const response = await api().get("/veacos");
-    if (response.data.length > 0) {
-      return setListClientsData(response.data);
+    if (response.data.rows.length > 0) {
+      return setListClientsData(response.data.rows);
     }
     return setListClientsData([]);
   }
@@ -179,7 +179,7 @@ const ListaClientes = () => {
     const response = await api().get(
       `/clients/${pesquisa == null ? "" : pesquisa}`
     );
-    setListClientsData(response.data);
+    setListClientsData(response.data.rows);
   }
 
   React.useEffect(() => {
